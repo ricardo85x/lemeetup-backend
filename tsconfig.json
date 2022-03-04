@@ -5,5 +5,8 @@
     "strict": false,
     "lib": ["esnext"],
     "esModuleInterop": true
+  },
+  "ts-node": {
+    "swc": true
   }
 }

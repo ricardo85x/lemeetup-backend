@@ -16,5 +16,14 @@ model Users {
   password String
 
   @@map("users")
+}
 
+model RefreshTokens {
+  id String @id @default(uuid())
+  email String
+  token String
+  token_family String
+  count Int
+
+  @@map("refresh_tokens")
 }

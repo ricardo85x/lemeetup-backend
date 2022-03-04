@@ -5,15 +5,19 @@
   "license": "MIT",
   "scripts": {
     "dev": "ts-node-dev --inspect --transpile-only --ignore-watch node_modules --respawn src/server.ts",
+    "watch": "nodemon --ignore node_modules --watch src src/server.ts",
     "test": "jest"
   },
   "devDependencies": {
-    "@swc/core": "^1.2.142",
+    "@swc/core": "^1.2.147",
+    "@swc/helpers": "^0.3.6",
     "@swc/jest": "^0.2.17",
     "@types/bcrypt": "^5.0.0",
+    "@types/cors": "^2.8.12",
     "@types/express": "^4.17.13",
     "@types/jest": "^27.4.0",
     "@types/jsonwebtoken": "^8.5.8",
+    "@types/uuid": "^8.3.4",
     "@typescript-eslint/eslint-plugin": "^5.12.0",
     "@typescript-eslint/parser": "^5.12.0",
     "eslint": "^8.9.0",
@@ -24,17 +28,22 @@
     "eslint-plugin-import-helpers": "^1.2.1",
     "eslint-plugin-prettier": "^4.0.0",
     "jest": "^27.5.1",
+    "node-dev": "^7.1.0",
+    "nodemon": "^2.0.15",
     "prettier": "^2.5.1",
     "prisma": "^3.9.2",
-    "ts-node": "^10.5.0",
+    "regenerator-runtime": "^0.13.9",
+    "ts-node": "^10.6.0",
     "ts-node-dev": "^1.1.8",
     "typescript": "^4.5.5"
   },
   "dependencies": {
     "@prisma/client": "^3.9.2",
     "bcrypt": "^5.0.1",
+    "cors": "^2.8.5",
     "express": "^4.17.2",
     "express-async-errors": "^3.1.1",
-    "jsonwebtoken": "^8.5.1"
+    "jsonwebtoken": "^8.5.1",
+    "uuid": "^8.3.2"
   }
 }
