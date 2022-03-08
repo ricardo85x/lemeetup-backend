@@ -123,7 +123,7 @@ export const updateRefreshTokenAndJWT = async ({
 
   const newJWT = sign(payload, hash, {
     subject,
-    expiresIn: "1d",
+    expiresIn: process.env.JWT_TIMEOUT,
   });
 
   return {
@@ -143,7 +143,7 @@ export const generateJwtTokenAndRefreshToken = async ({
 
   const token = sign(payload, hash, {
     subject,
-    expiresIn: "1d",
+    expiresIn: process.env.JWT_TIMEOUT,
   });
 
   return {

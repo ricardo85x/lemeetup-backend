@@ -17,7 +17,8 @@ model Users {
 
   @@map("users")
 }
-
+// TODO
+// remove the count and replace it with ID auto increment
 model RefreshTokens {
   id String @id @default(uuid())
   email String

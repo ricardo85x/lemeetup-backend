@@ -30,7 +30,8 @@ export async function ensureUserAuthenticationMiddleware(
     return next();
   } catch (err) {
     return res.status(401).json({
-      message: "Invalid token",
+      message: "Invalid token x",
+      code: "token.expired",
     });
   }
 }
