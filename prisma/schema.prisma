@@ -14,7 +14,7 @@ model Users {
   id String @id @default(uuid())
   email String @unique
   password String
-
+  places UserOnPlace[]
   @@map("users")
 }
 // TODO
@@ -27,4 +27,32 @@ model RefreshTokens {
   count Int
 
   @@map("refresh_tokens")
+}
+
+
+model Place {
+  id String @id @default(uuid())
+  name String
+  description String
+  latitude Float
+  longitude Float
+
+  users UserOnPlace[]
+
+  @@map("place")
+}
+
+
+model UserOnPlace {
+  owner Boolean
+  joined_at DateTime @default(now())
+
+  user_id String
+  user Users @relation(fields:[user_id], references: [id])
+  place_id String
+  place Place @relation(fields:[place_id], references: [id])
+
+  @@id([user_id, place_id])
+  @@map("user_on_place")
+
 }
