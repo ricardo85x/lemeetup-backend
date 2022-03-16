@@ -1,14 +1,16 @@
 import { NextFunction, Request, Response } from "express";
 
+import { CustomError } from "../modules/error/CustomError";
+
 export function errorMiddleware(
-  error: Error,
-  req: Request,
+  error: CustomError,
+  _req: Request,
   res: Response,
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  next: NextFunction
+  _next: NextFunction
 ) {
-  if (error instanceof Error) {
-    return res.status(400).json({ message: error.message });
+  if (error instanceof CustomError) {
+    return res.status(error.code).json({ message: error.message });
   }
 
   return res

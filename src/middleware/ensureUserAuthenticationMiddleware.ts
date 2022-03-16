@@ -3,6 +3,7 @@ import { verify } from "jsonwebtoken";
 
 interface IPayload {
   email: string;
+  sub: string;
 }
 
 export async function ensureUserAuthenticationMiddleware(
@@ -21,11 +22,15 @@ export async function ensureUserAuthenticationMiddleware(
   const [, token] = authHeaders.split(" ");
 
   try {
-    const payload = verify(token, process.env.USER_AUTH_SECRET) as IPayload;
+    const payload = verify(
+      token,
+      process.env.USER_AUTH_SECRET || ""
+    ) as IPayload;
 
-    const { email } = payload;
+    const { email, sub } = payload;
 
     req.user_email = email;
+    req.user_id = sub;
 
     return next();
   } catch (err) {

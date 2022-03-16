@@ -4,7 +4,8 @@
     "outDir": "dist",
     "strict": false,
     "lib": ["esnext"],
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "strictNullChecks": true
   },
   "ts-node": {
     "swc": true
