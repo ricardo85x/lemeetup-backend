@@ -1,17 +1,15 @@
-import { prismaMock } from "../../../../singletonTest";
+import faker from "@faker-js/faker";
+
 import { AddPlaceUseCase } from "./AddPlaceUseCase";
 
 describe("PLACE", () => {
   it("should create a new place", async () => {
     const place = {
-      id: "29219cbb-390f-409d-b6f2-ff53afbb2532",
-      name: "Pista de sao bernado",
-      description: "Bom lugar para andar de patins",
-      latitude: -23.50660320067105,
-      longitude: -46.6154439769532,
+      name: faker.address.cityName(),
+      description: faker.lorem.text(),
+      latitude: Number(faker.address.latitude()),
+      longitude: Number(faker.address.longitude()),
     };
-
-    prismaMock?.place?.create?.mockResolvedValue(place);
 
     const addPlaceUseCase = new AddPlaceUseCase();
 

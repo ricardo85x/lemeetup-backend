@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "ts-node-dev --inspect --transpile-only --ignore-watch node_modules --respawn src/server.ts",
     "watch": "nodemon --ignore node_modules --watch src src/server.ts",
-    "test": "jest"
+    "test": "jest",
+    "db:push": "yarn prisma db push ; export DB_NAME=lemeetup_test ; yarn prisma db push"
   },
   "devDependencies": {
     "@swc/core": "^1.2.152",
@@ -39,6 +40,7 @@
     "typescript": "^4.5.5"
   },
   "dependencies": {
+    "@faker-js/faker": "^6.0.0",
     "@prisma/client": "^3.9.2",
     "bcrypt": "^5.0.1",
     "cors": "^2.8.5",
